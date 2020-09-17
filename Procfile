@@ -1,1 +1,1 @@
-web: gunicorn tf_idf:app
+worker: gunicorn tf_idf:app
