@@ -147,7 +147,11 @@ def previous_chats(query):
     return query_response
 
 while 1:
-    sent = input("Toi : ")
-    print(previous_chats(sent))
+    try:
+        sent = input("Toi : ")
+        print(previous_chats(sent))
+    except EOFError:
+        print("EOFError")
+        break
 
 
