@@ -1,1 +1,1 @@
-worker: gunicorn tf_idf:app
+worker: python tf_idf.py
