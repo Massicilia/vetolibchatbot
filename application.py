@@ -1,4 +1,5 @@
 # _____TF-IDF libraries_____
+from flask import Flask, json
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
@@ -147,10 +148,16 @@ def previous_chats(query):
     return query_response
 
 
-while 1:
+api = Flask(__name__)
+
+
+@api.route('/<inputtext>', methods=['GET'])
+def get_chat(inputtext):
     try:
-        sent = input("Toi : ")
-        print(previous_chats(sent))
+        return json.dumps(previous_chats(inputtext))
     except EOFError:
-        print("EOFError")
-        break
+        return json.dumps("EOFError")
+
+
+if __name__ == '__main__':
+    api.run()
