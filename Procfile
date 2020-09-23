@@ -1,2 +1,2 @@
-worker: python tf_idf.py
-web: python tf_idf.py
+worker: python application.py
+web: python application.py
