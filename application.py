@@ -1,15 +1,15 @@
 # _____TF-IDF libraries_____
-from flask import Flask, json
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
-
+import json
 # _____helper Libraries_____
 import pickle
-import timeit
 import random
-import json
+import timeit
+
+import numpy as np
 import requests
+from flask import Flask, json
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 # _____________DATA PROCESS
 URL = "https://vetolibapi.herokuapp.com/api/v1/consultation"
@@ -160,4 +160,5 @@ def get_chat(inputtext):
 
 
 if __name__ == '__main__':
-    api.run()
+    port = int(Flask.environ.get("PORT", 5000))
+    api.run(host='0.0.0.0', port=port)
