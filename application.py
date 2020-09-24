@@ -1,6 +1,7 @@
 # _____TF-IDF libraries_____
 import json
 # _____helper Libraries_____
+import os
 import pickle
 import random
 import timeit
@@ -160,5 +161,5 @@ def get_chat(inputtext):
 
 
 if __name__ == '__main__':
-    port = int(Flask.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5000))
     api.run(host='0.0.0.0', port=port)
