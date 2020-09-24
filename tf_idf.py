@@ -18,7 +18,7 @@ consultations = r.json()
 doExist = 0
 
 # récupérer les données de intents.json
-with open("previous_chats.json") as file:
+with open("previous_chats.json", encoding='utf8') as file:
     data = json.load(file)
 
 
@@ -44,7 +44,8 @@ def getDatasFormatFromDB(data):
 
 dataToAdd = getDatasFormatFromDB(data)
 
-with open("previous_chats.json", 'w') as outfile:
+
+with open("previous_chats.json", 'w', encoding='utf8') as outfile:
     json.dump(dataToAdd, outfile)
 
 
